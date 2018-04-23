@@ -1,0 +1,19 @@
+version: '2.1'
+
+services:
+  app:
+    build:
+      context: app
+    image: nginx-tutorial-app
+    env_file: local.env
+    ports:
+      - 8000:8000
+  nginx:
+    build:
+      context: nginx
+    image: nginx-tutorial-nginx
+    env_file: local.env
+    ports:
+      - 80:80
+      - 88:88
+      - 888:888
