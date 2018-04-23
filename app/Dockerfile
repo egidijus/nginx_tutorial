@@ -7,8 +7,6 @@ RUN apk add --update \
 
 WORKDIR /app
 
-ADD app/requirements.txt /app/
-RUN pip install -r /app/requirements.txt
-
 ADD app /app
-ENTRYPOINT ["gunicorn", "-w 4", "-b 0.0.0.0:8000", "mock:app"]
+
+RUN pip install -r /app/requirements.txt
